@@ -8,7 +8,7 @@ func main() {
 
 }
 
-func From1() {
+func From1_1() {
 	fmt.Println("Version 1.0.0")
 }
 
