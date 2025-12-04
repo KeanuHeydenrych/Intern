@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+
+	new "github.com/KeanuHeydenrych/Intern/New"
 )
 
 func main() {
@@ -99,5 +101,7 @@ func main() {
 	fmt.Printf("%d \t %b \t %#X \n", c, c, c)
 
 	fmt.Println(Bark())
+
+	fmt.Println(new.From1_1())
 
 }

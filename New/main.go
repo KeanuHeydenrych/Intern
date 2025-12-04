@@ -1,15 +1,9 @@
-package new
+package New
 
 import "fmt"
 
-func main() {
-
-	fmt.Println("New version")
-
-}
-
-func From1_1() {
-	fmt.Println("Version 1.0.0")
+func From1_1() string {
+	return "Version 1.0.0"
 }
 
 func From1_2() {
