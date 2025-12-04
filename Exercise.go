@@ -100,8 +100,4 @@ func main() {
 
 	fmt.Println(Bark())
 
-	woof := functions2.Smallbark()
-
-	fmt.Printf(woof)
-
 }
