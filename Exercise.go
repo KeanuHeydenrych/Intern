@@ -100,6 +100,8 @@ func main() {
 
 	fmt.Println(Bark())
 
-	fmt.Println("Intern2 code", functions2.smallBark())
+	woof := functions2.Smallbark()
+
+	fmt.Printf(woof)
 
 }
