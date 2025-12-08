@@ -1,4 +1,4 @@
-package verasioncontrol
+package main
 
 import "fmt"
 

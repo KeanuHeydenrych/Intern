@@ -14,6 +14,4 @@ func main() {
 	z := 42
 	fmt.Printf("The value of z is %v and the type of z is %T\n", z, z)
 
-	// v1.0
-
 }
