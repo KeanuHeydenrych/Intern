@@ -135,8 +135,11 @@ func main() {
 	xsl := [5]int{}
 
 	for i := 0; i < 5; i++ {
-		xsl[i] = i
-		fmt.Println("xsl = ", xsl[i])
+		xsl[i] = i + 10
+	}
+
+	for i, v := range xsl {
+		fmt.Printf("%v \t %T \t %v\n ", v, v, i)
 	}
 
 	//maps
