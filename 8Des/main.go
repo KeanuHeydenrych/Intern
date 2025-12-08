@@ -89,8 +89,10 @@ func main() {
 	*/
 
 	//Aggregation:
+	fmt.Println("\nAggregation:")
 
 	//arrays
+	fmt.Println("Arrays:")
 
 	var ni [7]int //declare a variable of type [7]int
 
@@ -109,9 +111,31 @@ func main() {
 	fmt.Println(len(ns))
 
 	//slices
+	fmt.Println("\nSlices")
+	xs := []string{"This", "is", "a", "slice"} //all have the same type (String)
+	fmt.Printf("%#v \t\t\t %T\n ", xs, xs)
+
+	for i := range xs {
+		fmt.Println(xs[i])
+	}
+
+	xs = append(xs, "This is an", "apppend.")
+	fmt.Println(xs)
+
+	//making a slice with 'make'
+	xi := make([]int, 0, 10)
+	fmt.Println("Slice xi:", xi)
+
+	fmt.Println("Length of xi", len(xi))
+	fmt.Println("Cap of xi", cap(xi))
+
+	xi = append(xi, 0, 1, 2, 3, 4, 5, 6, 7)
+	fmt.Printf("appended xi:", xi)
 
 	//maps
+	fmt.Println("\nMaps")
 
 	//structs
+	fmt.Println("\nStructs")
 
 }
