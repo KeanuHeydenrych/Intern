@@ -95,7 +95,7 @@ func main() {
 	var ni [7]int //declare a variable of type [7]int
 
 	ni[0] = 42 //assign a value to position 0 in index
-	fmt.Printf("%#v \t\t\t\t\t %T\n", ni, ni)
+	fmt.Printf("%#v \t\t\t\t %T\n", ni, ni)
 
 	ni2 := [4]int{55, 56, 57, 58} //array literal
 	fmt.Printf("%#v \t\t\t\t\t %T\n", ni2, ni2)
