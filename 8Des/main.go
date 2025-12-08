@@ -130,7 +130,14 @@ func main() {
 	fmt.Println("Cap of xi", cap(xi))
 
 	xi = append(xi, 0, 1, 2, 3, 4, 5, 6, 7)
-	fmt.Printf("appended xi:", xi)
+	fmt.Println("appended xi:", xi)
+
+	xsl := [5]int{}
+
+	for i := 0; i < 5; i++ {
+		xsl[i] = i
+		fmt.Println("xsl = ", xsl[i])
+	}
 
 	//maps
 	fmt.Println("\nMaps")
