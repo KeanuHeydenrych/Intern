@@ -254,6 +254,116 @@ func main() {
 	fmt.Printf("%#v \t %T\n", c1, c1)
 
 	//Composition
+	// basically like anon structs.
+
+	// Exercise:
+	fmt.Println("\n\nExercise:")
+
+	// Struct with slice
+	p3 := person3{
+		first: "James",
+		last:  "Donoldson",
+		age:   17,
+		favIc: []string{"chocolate", "vanilla", "passion fruit with guava"},
+	}
+
+	fmt.Println(p3)
+
+	for _, v := range p3.favIc {
+		fmt.Println(p3.first, "'s fav icecream is:", v)
+	}
+
+	// map with struct
+	m3 := map[string]person3{
+		p1.last: p3,
+		p2.last: p3,
+	}
+
+	for _, v := range m3 {
+		fmt.Println(v)
+
+		for _, v2 := range v.favIc {
+			fmt.Println(v.first, v.last, v2)
+		}
+	}
+
+	//embed sruct
+	type engine struct {
+		electric bool
+	}
+
+	type vehicle struct {
+		engine
+		make   string
+		model  string
+		doors  int
+		colour string
+	}
+
+	v1 := vehicle{
+		engine: engine{
+			electric: true,
+		},
+		make:   "Ford",
+		model:  "Mustang",
+		doors:  4,
+		colour: "Blue",
+	}
+	v2 := vehicle{
+		engine: engine{
+			electric: false,
+		},
+		make:   "BMW",
+		model:  "X3-M",
+		doors:  5,
+		colour: "White",
+	}
+
+	fmt.Println(v1)
+	fmt.Println(v2)
+
+	fmt.Println(v1.electric, v1.make, v1.model)
+	fmt.Println(v2.electric, v2.make, v2.model)
+
+	//anon struct
+	person1 := struct {
+		first   string
+		friends map[string]int
+		drinks  []string
+	}{
+		first: "James",
+		friends: map[string]int{
+			"Goldfinger":    27,
+			"W":             87,
+			"Austin Powers": 52,
+		},
+		drinks: []string{
+			"Gin - Tonic",
+			"Brandy  - Coke",
+		},
+	}
+
+	for k, v := range person1.friends {
+		fmt.Println(person1.first, "- friends -", k, v)
+	}
+
+	for _, v := range person1.drinks {
+		fmt.Println(person1.first, "- drinks -", v)
+	}
+
+	// Functons:
+	fmt.Println("\n\nFunctions:")
+	sum1 := sum(5, 6)
+	fmt.Println("Sum: ", sum1)
+
+	x2, y2 := 8, 999
+	fmt.Println(x2, "+", y2, "=", sum(x2, y2))
+
+	//Variadic Parameter
+	sum_vari := sum_variadic(1, 2, 3, 4)
+	fmt.Println(sum_vari)
+
+	// Defer statement:
 
 }
 
@@ -261,4 +371,30 @@ type person2 struct {
 	first string
 	last  string
 	age   int
+}
+
+type person3 struct {
+	first string
+	last  string
+	age   int
+	favIc []string
+}
+
+func sum(x int, y int) int {
+	return x + y
+}
+
+// Variadic Parameter - takes on unlimited number of parameters
+// func (r reciever) identifier(p paramters) (return(s)) {code}
+
+func sum_variadic(ii ...int) int {
+	fmt.Println("the sum of :", ii, "is =")
+
+	n := 0
+	for _, v := range ii {
+		n += v
+	}
+
+	return n
+
 }
