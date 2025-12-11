@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+// "strconv"
 
 func main() {
 
@@ -488,13 +485,15 @@ func main() {
 
 }
 
+/*
+
 type person2 struct {
 	first string
 	last  string
 	age   int
 }
 
-/*
+
 
 type person3 struct {
 	first string
@@ -531,7 +530,7 @@ func bar() {
 	fmt.Println("bar")
 }
 
-*/
+
 
 type secretAgent struct {
 	person2
@@ -607,3 +606,5 @@ func addOne(v int) int {
 func addOneP(v *int) {
 	*v += 1
 }
+
+*/
