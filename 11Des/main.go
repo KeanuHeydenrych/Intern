@@ -1,8 +1,9 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 // "strconv"
@@ -488,21 +489,25 @@ func main() {
 
 	// 11 Des
 
-	// Values, Pointers, Stacks and Heap
-	fmt.Println("Values, Pointers, Stacks and Heap")
+	/*
 
-	d1 := dog{"Milo"}
-	d2 := &dog{"Nala"} // pointer
+		// Values, Pointers, Stacks and Heap
+		fmt.Println("Values, Pointers, Stacks and Heap")
 
-	d1.walk()
-	d1.run()
+		d1 := dog{"Milo"}
+		d2 := &dog{"Nala"} // pointer
 
-	// youngRun(d1) 		- does not work
+		d1.walk()
+		d1.run()
 
-	d2.walk()
-	d2.run()
+		// youngRun(d1) 		- does not work
 
-	youngRun(d2)
+		d2.walk()
+		d2.run()
+
+		youngRun(d2)
+
+	*/
 
 	/*
 		//Exercises
@@ -526,42 +531,62 @@ func main() {
 		fmt.Println(*d)
 	*/
 
-	// Generics:
-	fmt.Println("\n\nGenerenics")
+	/*
+		// Generics:
+		fmt.Println("\n\nGenerics")
 
-	fmt.Println("addInt", addInt(2, 7))
-	fmt.Println("addFloat", addFloat(2.7, 7.9))
+		fmt.Println("addInt", addInt(2, 7))
+		fmt.Println("addFloat", addFloat(2.7, 7.9))
 
-	fmt.Println("addGenereic:", addGeneric(7.5, 9))
+		fmt.Println("addGenereic:", addGeneric(7.5, 9))
 
-	var ali myAlias = 79
-	fmt.Println("alias", ali)
+		var ali myAlias = 79
+		fmt.Println("alias", ali)
 
-	// JSON documentation
-	fmt.Println("\n\nJSON Documentation:")
+		// Sort package
+		x := []int{1, 2, 7, 9, 56, 34, 3, 5, 8}
+		fmt.Println("Unsorted x:", x)
 
-	p1 := person{
-		First: "James",
-		Last:  "Bond",
-		Age:   007,
-	}
+		sort.Ints(x)
+		fmt.Println("Sorted x:", x)
 
-	p2 := person{
-		First: "Gold",
-		Last:  "Finger",
-		Age:   69,
-	}
+		xs := []string{"Keanu", "Heydnerych", "One", "two", "Three"}
+		fmt.Println("Unsorted string:", xs)
 
-	people := []person{p1, p2}
+		sort.Strings(xs)
+		fmt.Println("Sorted string:", xs)
 
-	fmt.Println("People:", people)
+	*/
 
-	bs, err := json.Marshal(people)
+	// bcrypt:
+	fmt.Println("\n\nbCrypt")
+
+	password := `password123`
+	bs, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.MinCost)
 
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(string(bs))
+	fmt.Println("Password:", password)
+	fmt.Println("hashed Password:", bs)
+
+	err = bcrypt.CompareHashAndPassword(bs, []byte(password))
+	if err != nil {
+		fmt.Println("Wrong password")
+		return
+	}
+	fmt.Println("Success")
+
+	password1 := `123password`
+
+	err = bcrypt.CompareHashAndPassword(bs, []byte(password1))
+	if err != nil {
+		fmt.Println("Wrong password")
+		return
+	}
+	fmt.Println("Success")
+
+	// Concurrency vs. Parallelism:
 
 }
 
@@ -696,6 +721,8 @@ func functions() {
 
 // 11 Des
 
+/*
+
 // Values, Pointers, Stacks and Heap
 type dog struct {
 	name string
@@ -718,6 +745,8 @@ type youngin interface {
 func youngRun(y youngin) {
 	y.run()
 }
+
+*/
 
 /*
 func exercise() {
@@ -744,6 +773,7 @@ func exercise() {
 }
 */
 
+/*
 // Generics:
 func addInt(a int, b int) int {
 	return a + b
@@ -760,10 +790,4 @@ func addGeneric[T int | float64](a, b T) T {
 
 type myAlias int
 
-// JSON
-
-type person struct {
-	First string
-	Last  string
-	Age   int
-}
+*/
